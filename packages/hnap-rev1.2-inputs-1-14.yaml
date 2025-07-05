@@ -13,6 +13,11 @@ binary_sensor:
       inverted: $sensor_inverted
     filters:
       - delayed_on_off: $sensor_debounce_time
+    on_value:
+      - script.execute:
+          id: play_warning_beep
+          source: Zone 01
+
 
   # Zone 02 Input
   - platform: gpio
@@ -26,6 +31,10 @@ binary_sensor:
       inverted: $sensor_inverted
     filters:
       - delayed_on_off: $sensor_debounce_time
+    on_value:
+      - script.execute:
+          id: play_warning_beep
+          source: Zone 02
 
   # Zone 03 Input
   - platform: gpio
